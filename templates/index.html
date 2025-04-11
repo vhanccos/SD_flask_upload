@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>File Upload</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css"
+    />
+    <style>
+      .uploaded-images img {
+        width: 64px;
+        margin: 4px;
+        border: 1px solid #ccc;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sube tu archivo</h1>
+    <form
+      action="{{ url_for('upload_files') }}"
+      class="dropzone"
+      id="my-dropzone"
+    ></form>
+
+    <hr />
+    <h3>Imágenes subidas</h3>
+    <div class="uploaded-images">
+      {% for file in files %}
+      <img src="{{ url_for('upload', filename=file) }}" />
+      {% endfor %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
+  </body>
+</html>
