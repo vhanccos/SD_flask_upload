@@ -66,7 +66,7 @@ def upload_files():
 def is_allowed_file(filename, stream):
     file_ext = os.path.splitext(filename)[1].lower()
     detected_ext = validate_image(stream)
-    return file_ext in app.config["UPLOAD_EXTENSIONS"] and file_ext == detected_ext
+    return file_ext in app.config["UPLOAD_EXTENSIONS"]  # and file_ext == detected_ext
 
 
 # Ruta para servir los archivos subidos
